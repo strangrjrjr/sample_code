@@ -1,10 +1,6 @@
 # QUESTIONS??????
 
 # Thoughts on Databases, why do we need???
-- store information
-- persistance of data
-- organization -> lead to also talking about ORMS
-- ease of access, collaboration
 
 # Intro to SQL
 1. Install the SQLite Browser if you haven't already [here](http://sqlitebrowser.org/)
@@ -50,29 +46,10 @@
 
 9. Write the SQL to display artist name, album title and number of tracks on that album
 ```sql
-SELECT artists_name, albums_title, COUNT(id) AS number_of_tracks
-	FROM (SELECT albums.id AS albums_id, artists.name AS artists_name, albums.title AS albums_title
-	FROM artists JOIN albums
-	ON artists.id == albums.artist_id)
-INNER JOIN tracks 
-ON tracks.album_id == albums_id
-GROUP BY albums_title
 ```
 
 10. Write the SQL to return the name of all of the artists in the 'Pop' Genre
 ```sql
-SELECT name,  genres_name 
-FROM (SELECT artists_name as name, genres.name as genres_name
-FROM (SELECT artists_name,  tracks.genre_id AS tracks_genre_id
-	FROM (SELECT albums.id AS albums_id, artists.name AS artists_name, albums.title AS albums_title
-	FROM artists JOIN albums
-	ON artists.id == albums.artist_id)
-INNER JOIN tracks 
-ON tracks.album_id == albums_id
-GROUP BY albums_title)
-INNER JOIN genres 
-ON genres.id == tracks_genre_id)
-WHERE genres_name == "Pop"
 ```
 
 ## BONUS (very hard)
@@ -84,15 +61,3 @@ WHERE genres_name == "Pop"
     from greatest to least
 ```sql
 ```
-
-
-# ORMS
-- Jurassic Park - 8
-	- Dinosaurs
-	- Guests
-	- Concessions
-	- Vetrenarians
-	- Rides
-- Build your own pizza - 7
-- Tracking and grading participation - 6
-- Hogwarts - 4
